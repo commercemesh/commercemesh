@@ -1,0 +1,302 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CMP Product Feed Schema v0.1",
+  "type": "object",
+  "required": [
+    "@context",
+    "@type",
+    "version",
+    "lastUpdated",
+    "publisher",
+    "products"
+  ],
+  "properties": {
+    "@context": {
+      "type": "string"
+    },
+    "@type": {
+      "type": "string",
+      "enum": [
+        "ProductFeed"
+      ]
+    },
+    "version": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publisher": {
+      "type": "object",
+      "required": [
+        "@type",
+        "id",
+        "name",
+        "website"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": [
+            "Brand"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "externalIds": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "@type",
+          "id",
+          "sku",
+          "name",
+          "description",
+          "category",
+          "price",
+          "inventory"
+        ],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": [
+              "sku" 
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "productGroup": {
+            "type": "string"
+          },
+          "gtin": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "url",
+                "type"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "image",
+                    "video"
+                  ]
+                }
+              }
+            }
+          },
+          "variants": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "weight": {
+                "type": "string"
+              },
+              "dimensions": {
+                "type": "string"
+              },
+              "material": {
+                "type": "string"
+              },
+              "warranty": {
+                "type": "string"
+              },
+              "custom": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": [
+                    "boolean",
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            }
+          },
+          "price": {
+            "type": "object",
+            "required": [
+              "price",
+              "currency",
+              "uom",
+              "count"
+            ],
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "uom": {
+                "type": "string"
+              },
+              "count": {
+                "type": "string"
+              },
+              "compareAtPrice": {
+                "type": "number"
+              }
+            }
+          },
+          "inventory": {
+            "type": "object",
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "in_stock",
+                  "out_of_stock",
+                  "preorder"
+                ]
+              },
+              "quantity": {
+                "type": "integer"
+              },
+              "lastChecked": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "fulfillments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "cost",
+                "regions",
+                "deliveryTime"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "cost": {
+                  "type": "number"
+                },
+                "regions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "deliveryTime": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "agentHints": {
+            "type": "object",
+            "properties": {
+              "decisionPriority": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "substitutability": {
+                "type": "number"
+              },
+              "compatibility": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "external": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": [
+                    "string",
+                    "integer"
+                  ]
+                },
+                "variantId": {
+                  "type": [
+                    "string",
+                    "integer"
+                  ]
+                }
+              },
+              "required": [
+                "productId",
+                "variantId"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
