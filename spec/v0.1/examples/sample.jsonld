@@ -1,0 +1,164 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "ProductGroup",
+        "@id": "urn:cmp:product:myshop.com:blue-jeans",
+        "name": "Classic Blue Jeans",
+        "description": "High-quality denim jeans with perfect fit",
+        "brand": {
+          "@type": "Brand",
+          "name": "DenimCo"
+        },
+        "category": "Clothing > Pants > Jeans",
+        "productGroupID": "blue-jeans",
+        "variesBy": ["size", "color"]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "urn:cmp:sku:myshop.com:BLUE-JEANS-32-BLUE",
+        "name": "Classic Blue Jeans (32 / Blue)",
+        "sku": "BLUE-JEANS-32-BLUE",
+        "isVariantOf": {
+          "@type": "ProductGroup",
+          "@id": "urn:cmp:product:myshop.com:blue-jeans"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": 79.99,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "inventoryLevel": {
+            "@type": "QuantitativeValue",
+            "value": 15
+          },
+          "priceValidUntil": "2024-12-31T23:59:59Z",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": 99.99,
+            "priceCurrency": "USD"
+          }
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "size",
+            "value": "32"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "color",
+            "value": "Blue"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "productType",
+            "value": "Jeans"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "custom.material",
+            "value": "100% Cotton"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "urn:cmp:sku:myshop.com:BLUE-JEANS-34-BLUE",
+        "name": "Classic Blue Jeans (34 / Blue)",
+        "sku": "BLUE-JEANS-34-BLUE",
+        "isVariantOf": {
+          "@type": "ProductGroup",
+          "@id": "urn:cmp:product:myshop.com:blue-jeans"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": 79.99,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "inventoryLevel": {
+            "@type": "QuantitativeValue",
+            "value": 8
+          }
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "size",
+            "value": "34"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "color",
+            "value": "Blue"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "productType",
+            "value": "Jeans"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "urn:cmp:sku:myshop.com:LEATHER-BELT-BLACK",
+        "name": "Classic Leather Belt",
+        "sku": "LEATHER-BELT-BLACK",
+        "description": "Genuine leather belt with classic buckle",
+        "image": "https://myshop.com/images/leather-belt-black.jpg",
+        "brand": {
+          "@type": "Brand",
+          "name": "Belt & Company"
+        },
+        "category": "Accessories > Belts",
+        "offers": {
+          "@type": "Offer",
+          "price": 49.99,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "inventoryLevel": {
+            "@type": "QuantitativeValue",
+            "value": 25
+          }
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "productType",
+            "value": "Belt"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "custom.material",
+            "value": "Genuine Leather"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "custom.width",
+            "value": "1.5 inches"
+          }
+        ]
+      }
+    }
+  ]
+}
