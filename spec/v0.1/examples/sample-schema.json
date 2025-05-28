@@ -1,0 +1,229 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Brand": {
+      "type": "object",
+      "required": ["@type", "name"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["Brand"]
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "QuantitativeValue": {
+      "type": "object",
+      "required": ["@type", "value"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["QuantitativeValue"]
+        },
+        "value": {
+          "type": "number"
+        }
+      }
+    },
+    "PriceSpecification": {
+      "type": "object",
+      "required": ["@type", "price", "priceCurrency"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["PriceSpecification"]
+        },
+        "price": {
+          "type": "number"
+        },
+        "priceCurrency": {
+          "type": "string"
+        }
+      }
+    },
+    "Offer": {
+      "type": "object",
+      "required": ["@type", "price", "priceCurrency", "availability", "inventoryLevel"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["Offer"]
+        },
+        "price": {
+          "type": "number"
+        },
+        "priceCurrency": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "string",
+          "enum": ["https://schema.org/InStock", "https://schema.org/OutOfStock"]
+        },
+        "inventoryLevel": {
+          "$ref": "#/definitions/QuantitativeValue"
+        },
+        "priceValidUntil": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "priceSpecification": {
+          "$ref": "#/definitions/PriceSpecification"
+        }
+      }
+    },
+    "PropertyValue": {
+      "type": "object",
+      "required": ["@type", "name", "value"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["PropertyValue"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": ["string", "number", "boolean", "object", "array"]
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "required": ["@context", "@type", "@id", "name", "sku", "offers"],
+      "properties": {
+        "@context": {
+          "type": "string",
+          "enum": ["https://schema.org"]
+        },
+        "@type": {
+          "type": "string",
+          "enum": ["Product"]
+        },
+        "@id": {
+          "type": "string",
+          "pattern": "^urn:cmp:sku:.*$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": ["string", "null"]
+        },
+        "brand": {
+          "$ref": "#/definitions/Brand"
+        },
+        "category": {
+          "type": "string"
+        },
+        "offers": {
+          "$ref": "#/definitions/Offer"
+        },
+        "additionalProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PropertyValue"
+          }
+        },
+        "isVariantOf": {
+          "type": "object",
+          "required": ["@type", "@id"],
+          "properties": {
+            "@type": {
+              "type": "string",
+              "enum": ["ProductGroup"]
+            },
+            "@id": {
+              "type": "string",
+              "pattern": "^urn:cmp:product:.*$"
+            }
+          }
+        }
+      }
+    },
+    "ProductGroup": {
+      "type": "object",
+      "required": ["@context", "@type", "@id", "name", "productGroupID"],
+      "properties": {
+        "@context": {
+          "type": "string",
+          "enum": ["https://schema.org"]
+        },
+        "@type": {
+          "type": "string",
+          "enum": ["ProductGroup"]
+        },
+        "@id": {
+          "type": "string",
+          "pattern": "^urn:cmp:product:.*$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "brand": {
+          "$ref": "#/definitions/Brand"
+        },
+        "category": {
+          "type": "string"
+        },
+        "productGroupID": {
+          "type": "string"
+        },
+        "variesBy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ListItem": {
+      "type": "object",
+      "required": ["@type", "position", "item"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["ListItem"]
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "item": {
+          "oneOf": [
+            { "$ref": "#/definitions/Product" },
+            { "$ref": "#/definitions/ProductGroup" }
+          ]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": ["@context", "@type", "itemListElement"],
+  "properties": {
+    "@context": {
+      "type": "string",
+      "enum": ["https://schema.org"]
+    },
+    "@type": {
+      "type": "string",
+      "enum": ["ItemList"]
+    },
+    "itemListElement": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ListItem"
+      }
+    }
+  }
+}
