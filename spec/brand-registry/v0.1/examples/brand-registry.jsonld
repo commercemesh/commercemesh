@@ -1,0 +1,39 @@
+{
+    "@context": {
+      "schema": "https://schema.org",
+      "cmp": "https://schema.commercemesh.ai/ns#"
+    },
+    "@type": "Organization",
+    "name": "Insight Editions",
+    "description": "Insight Editions is a publisher of books and other media.",
+    "url": "https://insighteditions.com",
+    "logo": "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/logo.png",
+    "brand": {
+        "@type": "Brand",
+        "name": "Insight Editions",
+        "logo": "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/logo.png",
+        "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "cmp:brandId  ",
+            "value": "urn:cmp:brand:123e4567-e89b-12d3-a456-426614174000"
+        }
+    },
+    "sameAs": [
+      "https://www.instagram.com/insighteditions",
+      "https://www.facebook.com/InsightEditions"
+    ],
+    "cmp:category": [
+      "books",
+      "gifts",
+      "licensed-merchandise"
+    ],
+    "cmp:productFeed": {
+      "@type": "DataFeed",
+      "url": "https://insighteditions.com/.well-known/cmp/feed-index.json"
+    },
+    "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "cmp:orgId",
+        "value": "urn:cmp:orgid:123e4567-e89b-12d3-a456-426614174000"
+    }
+  }

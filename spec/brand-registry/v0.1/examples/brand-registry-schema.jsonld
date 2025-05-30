@@ -1,0 +1,101 @@
+{
+    "$id": "https://schema.commercemesh.ai/brand-registry/v0.1/brand.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "CMP Brand Registry (Based on schema.org/Organization)",
+    "description": "A JSON-LD schema extending schema.org/Organization with CMP-specific fields.",
+    "type": "object",
+    "required": [
+      "@context",
+      "@type",
+      "name",
+      "url",
+      "logo",
+      "cmp:productFeed",
+      "cmp:brandId"
+    ],
+    "properties": {
+      "@context": {
+        "oneOf": [
+          {
+            "type": "string",
+            "const": "https://schema.org"
+          },
+          {
+            "type": "object",
+            "required": [
+              "schema",
+              "cmp"
+            ],
+            "properties": {
+              "schema": {
+                "type": "string",
+                "const": "https://schema.org"
+              },
+              "cmp": {
+                "type": "string",
+                "const": "https://schema.commercemesh.ai/ns#"
+              }
+            }
+          }
+        ]
+      },
+      "@type": {
+        "type": "string",
+        "const": "Organization"
+      },
+      "name": {
+        "type": "string",
+        "description": "The brand's display name"
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "Canonical domain/URL for the brand"
+      },
+      "logo": {
+        "type": "string",
+        "format": "uri"
+      },
+      "sameAs": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "format": "uri"
+        },
+        "description": "Links to social media or related profiles"
+      },
+      "cmp:category": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "CMP-defined category slugs"
+      },
+      "cmp:productFeed": {
+        "type": "object",
+        "required": [
+          "@type",
+          "url"
+        ],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "DataFeed"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "cmp:brandId": {
+        "type": "string",
+        "description": "URN for the brand"
+      },
+      "cmp:did": {
+        "type": "string",
+        "description": "Decentralized Identifier (optional)"
+      }
+    },
+    "additionalProperties": true
+  }
