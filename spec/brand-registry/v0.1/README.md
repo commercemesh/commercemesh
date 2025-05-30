@@ -86,5 +86,5 @@ Open an issue
 ## 🧩 Full Schema.org Support
 If you already use schema.org `Organization`, `Product`, `DataFeed`, or `Service`, simply include your full JSON-LD. CMP extractors will parse required and extended fields.
 
-Example - [/examples/brand-registry.jsonld](/examples/brand-registry.jsonld)  
-Schema - [/examples/brand-registry-schema.jsonlod](/examples/brand-registry-schema.jsonlod)
+See Example - /examples/brand-registry.jsonld  
+Schema - /examples/brand-registry-schema.jsonlod
