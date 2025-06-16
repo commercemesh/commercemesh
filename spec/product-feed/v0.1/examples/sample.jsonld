@@ -1,5 +1,8 @@
 {
-  "@context": "https://schema.org",
+  "@context": {
+    "schema": "https://schema.org",
+    "cmp": "https://schema.commercemesh.ai/ns#"
+  },
   "@type": "ItemList",
   "itemListElement": [
     {
@@ -7,17 +10,89 @@
       "position": 1,
       "item": {
         "@context": "https://schema.org",
-        "@type": "ProductGroup",
-        "@id": "urn:cmp:product:myshop.com:blue-jeans",
-        "name": "Classic Blue Jeans",
-        "description": "High-quality denim jeans with perfect fit",
+        "@type": "Product",
+        "@id": "urn:cmp:sku:WH-1000XM5-BLACK",
+        "name": "Sony WH-1000XM5 Wireless Noise Canceling Headphones",
+        "sku": "WH-1000XM5-BLACK",
+        "description": "Industry-leading noise canceling with Dual Noise Sensor technology. Up to 30-hour battery life with quick charge.",
+        "image": "https://example.com/images/wh1000xm5-main.jpg",
         "brand": {
           "@type": "Brand",
-          "name": "DenimCo"
+          "name": "Sony"
         },
-        "category": "Clothing > Pants > Jeans",
-        "productGroupID": "blue-jeans",
-        "variesBy": ["size", "color"]
+        "category": "Electronics > Audio > Headphones",
+        "offers": {
+          "@type": "Offer",
+          "price": 399.99,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "inventoryLevel": {
+            "@type": "QuantitativeValue",
+            "value": 25
+          },
+          "priceValidUntil": "2025-12-31T23:59:59Z",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": 399.99,
+            "priceCurrency": "USD"
+          }
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Color",
+            "value": "Black"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Wireless Technology",
+            "value": "Bluetooth"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Battery Life",
+            "value": "30 hours"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Weight",
+            "value": "250g"
+          }
+        ],
+        "isVariantOf": {
+          "@type": "ProductGroup",
+          "@id": "urn:cmp:product:WH-1000XM5"
+        },
+        "@cmp:media": [
+          {
+            "@type": "ImageObject",
+            "url": "https://example.com/images/wh1000xm5-main.jpg",
+            "alt": "Sony WH-1000XM5 headphones front view",
+            "name": "Main Product Image",
+            "width": 1200,
+            "height": 800,
+            "encodingFormat": "image/jpeg"
+          },
+          {
+            "@type": "ImageObject",
+            "url": "https://example.com/images/wh1000xm5-side.jpg",
+            "alt": "Sony WH-1000XM5 headphones side view",
+            "name": "Side View",
+            "width": 1200,
+            "height": 800,
+            "encodingFormat": "image/jpeg"
+          },
+          {
+            "@type": "VideoObject",
+            "url": "https://example.com/videos/wh1000xm5-demo.mp4",
+            "name": "Product Demo Video",
+            "description": "Demonstration of noise canceling features",
+            "thumbnailUrl": "https://example.com/images/video-thumb.jpg",
+            "duration": "PT2M45S",
+            "encodingFormat": "video/mp4",
+            "uploadDate": "2025-06-01"
+          }
+        ]
       }
     },
     {
@@ -25,50 +100,41 @@
       "position": 2,
       "item": {
         "@context": "https://schema.org",
-        "@type": "Product",
-        "@id": "urn:cmp:sku:myshop.com:BLUE-JEANS-32-BLUE",
-        "name": "Classic Blue Jeans (32 / Blue)",
-        "sku": "BLUE-JEANS-32-BLUE",
-        "isVariantOf": {
-          "@type": "ProductGroup",
-          "@id": "urn:cmp:product:myshop.com:blue-jeans"
+        "@type": "ProductGroup",
+        "@id": "urn:cmp:product:IPHONE-15-PRO",
+        "name": "iPhone 15 Pro",
+        "description": "iPhone 15 Pro. Forged in titanium and featuring the groundbreaking A17 Pro chip, a customizable Action Button, and the most powerful iPhone camera system ever.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Apple"
         },
-        "offers": {
-          "@type": "Offer",
-          "price": 79.99,
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "inventoryLevel": {
-            "@type": "QuantitativeValue",
-            "value": 15
-          },
-          "priceValidUntil": "2024-12-31T23:59:59Z",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": 99.99,
-            "priceCurrency": "USD"
-          }
-        },
-        "additionalProperty": [
+        "category": "Electronics > Mobile Phones > Smartphones",
+        "productGroupID": "IPHONE-15-PRO",
+        "variesBy": [
+          "Color",
+          "Storage Capacity"
+        ],
+        "@cmp:media": [
           {
-            "@type": "PropertyValue",
-            "name": "size",
-            "value": "32"
+            "@type": "ImageObject",
+            "url": "https://example.com/images/iphone15pro-group.jpg",
+            "alt": "iPhone 15 Pro in all available colors",
+            "name": "Product Group Image",
+            "width": 1400,
+            "height": 900,
+            "encodingFormat": "image/jpeg"
           },
           {
-            "@type": "PropertyValue",
-            "name": "color",
-            "value": "Blue"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "productType",
-            "value": "Jeans"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "custom.material",
-            "value": "100% Cotton"
+            "@type": "VideoObject",
+            "url": "https://example.com/videos/iphone15pro-features.mp4",
+            "name": "iPhone 15 Pro Features Overview",
+            "description": "Complete overview of iPhone 15 Pro features and capabilities",
+            "thumbnailUrl": "https://example.com/images/iphone-video-thumb.jpg",
+            "duration": "PT3M20S",
+            "encodingFormat": "video/mp4",
+            "width": 1920,
+            "height": 1080,
+            "uploadDate": "2025-05-15"
           }
         ]
       }
@@ -79,83 +145,78 @@
       "item": {
         "@context": "https://schema.org",
         "@type": "Product",
-        "@id": "urn:cmp:sku:myshop.com:BLUE-JEANS-34-BLUE",
-        "name": "Classic Blue Jeans (34 / Blue)",
-        "sku": "BLUE-JEANS-34-BLUE",
-        "isVariantOf": {
-          "@type": "ProductGroup",
-          "@id": "urn:cmp:product:myshop.com:blue-jeans"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": 79.99,
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "inventoryLevel": {
-            "@type": "QuantitativeValue",
-            "value": 8
-          }
-        },
-        "additionalProperty": [
-          {
-            "@type": "PropertyValue",
-            "name": "size",
-            "value": "34"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "color",
-            "value": "Blue"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "productType",
-            "value": "Jeans"
-          }
-        ]
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "@id": "urn:cmp:sku:myshop.com:LEATHER-BELT-BLACK",
-        "name": "Classic Leather Belt",
-        "sku": "LEATHER-BELT-BLACK",
-        "description": "Genuine leather belt with classic buckle",
-        "image": "https://myshop.com/images/leather-belt-black.jpg",
+        "@id": "urn:cmp:sku:IPHONE-15-PRO-128-NATURAL",
+        "name": "iPhone 15 Pro 128GB Natural Titanium",
+        "sku": "IPHONE-15-PRO-128-NATURAL",
+        "description": "iPhone 15 Pro with 128GB storage in Natural Titanium finish. Features A17 Pro chip and Pro camera system.",
+        "image": "https://example.com/images/iphone15pro-natural-main.jpg",
         "brand": {
           "@type": "Brand",
-          "name": "Belt & Company"
+          "name": "Apple"
         },
-        "category": "Accessories > Belts",
+        "category": "Electronics > Mobile Phones > Smartphones",
         "offers": {
           "@type": "Offer",
-          "price": 49.99,
+          "price": 999.00,
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "inventoryLevel": {
             "@type": "QuantitativeValue",
-            "value": 25
-          }
+            "value": 15
+          },
+          "priceValidUntil": "2025-12-31T23:59:59Z"
         },
         "additionalProperty": [
           {
             "@type": "PropertyValue",
-            "name": "productType",
-            "value": "Belt"
+            "name": "Color",
+            "value": "Natural Titanium"
           },
           {
             "@type": "PropertyValue",
-            "name": "custom.material",
-            "value": "Genuine Leather"
+            "name": "Storage Capacity",
+            "value": "128GB"
           },
           {
             "@type": "PropertyValue",
-            "name": "custom.width",
-            "value": "1.5 inches"
+            "name": "Display Size",
+            "value": "6.1 inches"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Processor",
+            "value": "A17 Pro"
+          }
+        ],
+        "isVariantOf": {
+          "@type": "ProductGroup",
+          "@id": "urn:cmp:product:IPHONE-15-PRO"
+        },
+        "@cmp:media": [
+          {
+            "@type": "ImageObject",
+            "url": "https://example.com/images/iphone15pro-natural-front.jpg",
+            "alt": "iPhone 15 Pro Natural Titanium front view",
+            "name": "Front View",
+            "width": 1000,
+            "height": 1200,
+            "encodingFormat": "image/jpeg"
+          },
+          {
+            "@type": "ImageObject",
+            "url": "https://example.com/images/iphone15pro-natural-back.jpg",
+            "alt": "iPhone 15 Pro Natural Titanium back view",
+            "name": "Back View",
+            "width": 1000,
+            "height": 1200,
+            "encodingFormat": "image/jpeg"
+          },
+          {
+            "@type": "MediaObject",
+            "url": "https://example.com/media/iphone15pro-360view.html",
+            "name": "360° Interactive View",
+            "description": "Interactive 360-degree product view",
+            "encodingFormat": "text/html"
           }
         ]
       }
