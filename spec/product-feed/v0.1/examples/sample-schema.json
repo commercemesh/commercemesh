@@ -121,7 +121,7 @@
         "duration": {
           "type": "string"
         },
-        "alt": {
+        "caption": {
           "type": "string"
         },
         "name": {
