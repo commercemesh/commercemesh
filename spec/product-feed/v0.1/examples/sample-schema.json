@@ -89,13 +89,79 @@
         }
       }
     },
+    "MediaObject": {
+      "type": "object",
+      "required": ["@type", "url"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["ImageObject", "VideoObject", "MediaObject"]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "contentUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "encodingFormat": {
+          "type": "string"
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "uploadDate": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
     "Product": {
       "type": "object",
       "required": ["@context", "@type", "@id", "name", "sku", "offers"],
       "properties": {
         "@context": {
-          "type": "string",
-          "enum": ["https://schema.org"]
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["https://schema.org"]
+            },
+            {
+              "type": "object",
+              "required": ["schema"],
+              "properties": {
+                "schema": {
+                  "type": "string",
+                  "enum": ["https://schema.org"]
+                },
+                "cmp": {
+                  "type": "string",
+                  "enum": ["https://schema.commercemesh.ai/ns#"]
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
         },
         "@type": {
           "type": "string",
@@ -145,6 +211,12 @@
               "pattern": "^urn:cmp:product:.*$"
             }
           }
+        },
+        "@cmp:media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MediaObject"
+          }
         }
       }
     },
@@ -153,8 +225,27 @@
       "required": ["@context", "@type", "@id", "name", "productGroupID"],
       "properties": {
         "@context": {
-          "type": "string",
-          "enum": ["https://schema.org"]
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["https://schema.org"]
+            },
+            {
+              "type": "object",
+              "required": ["schema"],
+              "properties": {
+                "schema": {
+                  "type": "string",
+                  "enum": ["https://schema.org"]
+                },
+                "cmp": {
+                  "type": "string",
+                  "enum": ["https://schema.commercemesh.ai/ns#"]
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
         },
         "@type": {
           "type": "string",
@@ -184,6 +275,12 @@
           "items": {
             "type": "string"
           }
+        },
+        "@cmp:media": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MediaObject"
+          }
         }
       }
     },
@@ -212,8 +309,27 @@
   "required": ["@context", "@type", "itemListElement"],
   "properties": {
     "@context": {
-      "type": "string",
-      "enum": ["https://schema.org"]
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["https://schema.org"]
+        },
+        {
+          "type": "object",
+          "required": ["schema"],
+          "properties": {
+            "schema": {
+              "type": "string",
+              "enum": ["https://schema.org"]
+            },
+            "cmp": {
+              "type": "string",
+              "enum": ["https://schema.commercemesh.ai/ns#"]
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
     },
     "@type": {
       "type": "string",
