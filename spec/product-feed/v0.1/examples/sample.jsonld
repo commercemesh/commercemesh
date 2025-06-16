@@ -67,7 +67,7 @@
           {
             "@type": "ImageObject",
             "url": "https://example.com/images/wh1000xm5-main.jpg",
-            "alt": "Sony WH-1000XM5 headphones front view",
+            "caption": "Sony WH-1000XM5 headphones front view",
             "name": "Main Product Image",
             "width": 1200,
             "height": 800,
@@ -76,7 +76,7 @@
           {
             "@type": "ImageObject",
             "url": "https://example.com/images/wh1000xm5-side.jpg",
-            "alt": "Sony WH-1000XM5 headphones side view",
+            "caption": "Sony WH-1000XM5 headphones side view",
             "name": "Side View",
             "width": 1200,
             "height": 800,
@@ -118,7 +118,7 @@
           {
             "@type": "ImageObject",
             "url": "https://example.com/images/iphone15pro-group.jpg",
-            "alt": "iPhone 15 Pro in all available colors",
+            "caption": "iPhone 15 Pro in all available colors",
             "name": "Product Group Image",
             "width": 1400,
             "height": 900,
@@ -196,7 +196,7 @@
           {
             "@type": "ImageObject",
             "url": "https://example.com/images/iphone15pro-natural-front.jpg",
-            "alt": "iPhone 15 Pro Natural Titanium front view",
+            "caption": "iPhone 15 Pro Natural Titanium front view",
             "name": "Front View",
             "width": 1000,
             "height": 1200,
@@ -205,7 +205,7 @@
           {
             "@type": "ImageObject",
             "url": "https://example.com/images/iphone15pro-natural-back.jpg",
-            "alt": "iPhone 15 Pro Natural Titanium back view",
+            "caption": "iPhone 15 Pro Natural Titanium back view",
             "name": "Back View",
             "width": 1000,
             "height": 1200,
