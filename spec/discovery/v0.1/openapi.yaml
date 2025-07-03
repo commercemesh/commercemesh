@@ -1,0 +1,75 @@
+
+openapi: 3.1.0
+info:
+  title: CMP Discovery Node API
+  version: 0.1.0
+servers:
+  - url: https://api.example-discovery.com
+paths:
+  /products:
+    get:
+      summary: Faceted & semantic product search
+      parameters:
+        - in: query
+          name: q
+          schema: { type: string }
+          description: Free-text or structured query
+        - in: query
+          name: filter
+          schema: { type: object, additionalProperties: true }
+        - in: query
+          name: limit
+          schema: { type: integer, default: 20 }
+      responses:
+        '200':
+          description: Paginated list of products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+  /products/{skuUrn}:
+    get:
+      summary: Full JSON-LD product + embedded offers
+      parameters:
+        - in: path
+          name: skuUrn
+          required: true
+          schema: { type: string, pattern: '^urn:cmp:sku:.+$' }
+      responses:
+        '200':
+          description: Product object
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Product' }
+  /events:
+    post:
+      summary: Buyer telemetry – view/click/cart logs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/EventsBatch' }
+      responses:
+        '202': { description: Accepted }
+components:
+  schemas:
+    Product:
+      $ref: ./schemas/product.schema.json
+    Offer:
+      type: object           # simplified – real shape lives in JSON-LD
+      properties:
+        offerId: { type: string }
+        price: { type: number }
+        priceCurrency: { type: string }
+    SearchResponse:
+      type: object
+      properties:
+        products:
+          type: array
+          items: { $ref: '#/components/schemas/Product' }
+        nextPageToken: { type: string, nullable: true }
+    Event:
+      $ref: ./schemas/events.schema.json
+    EventsBatch:
+      type: array
+      items: { $ref: '#/components/schemas/Event' }

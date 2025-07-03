@@ -15,7 +15,7 @@
         "identifier": {
             "@type": "PropertyValue",
             "propertyID": "cmp:brandId  ",
-            "value": "urn:cmp:brand:123e4567-e89b-12d3-a456-426614174000"
+            "value": "urn:cmp:brand:11cdde9b-6a0c-5c18-8d01-11f701089cc2"
         }
     },
     "sameAs": [
@@ -34,6 +34,6 @@
     "identifier": {
         "@type": "PropertyValue",
         "propertyID": "cmp:orgId",
-        "value": "urn:cmp:orgid:123e4567-e89b-12d3-a456-426614174000"
+        "value": "urn:cmp:orgid:11cdde9b-6a0c-5c18-8d01-11f701089cc2"
     }
   }

@@ -1,0 +1,40 @@
+openapi: 3.1.0
+info: { title: Discovery Webhooks, version: 0.1.0 }
+components:
+  securitySchemes:
+    HMAC:
+      type: http
+      scheme: hmac-sha256
+paths:
+  /webhooks:
+    post:
+      summary: Register a callback endpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url, events]
+              properties:
+                url: { type: string, format: uri }
+                events:
+                  type: array
+                  items: { enum: [product.viewed, product.addedToCart, product.purchased] }
+      responses: { '201': { description: Registered } }
+  /_callback:
+    post:
+      x-callback: true   # logical, not routed here
+      requestBody:
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/WebhookEvent' }
+      security: [{ HMAC: [] }]
+components:
+  schemas:
+    WebhookEvent:
+      type: object
+      required: [event, payload, timestamp]
+      properties:
+        event: { type: string }
+        timestamp: { type: string, format: date-time }
+        payload: { type: object, additionalProperties: true }
