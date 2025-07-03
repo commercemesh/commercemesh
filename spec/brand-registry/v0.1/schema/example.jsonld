@@ -1,0 +1,40 @@
+{
+    "@context": {
+      "schema": "https://schema.org",
+      "cmp": "https://schema.commercemesh.ai/ns#"
+    },
+    "@type": "Organization",
+    "name": "TechFlow Solutions",
+    "description": "TechFlow Solutions is a leading technology company specializing in software development and digital innovation.",
+    "url": "https://techflowsolutions.com",
+    "logo": "https://example.com/logos/techflow-logo.png",
+    "brand": {
+        "@type": "Brand",
+        "name": "TechFlow",
+        "logo": "https://example.com/logos/techflow-brand-logo.png",
+        "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "cmp:brandId",
+            "value": "urn:cmp:brand:987fcdeb-51a2-43d1-b789-987654321000"
+        }
+    },
+    "sameAs": [
+      "https://www.instagram.com/techflowsolutions",
+      "https://www.facebook.com/TechFlowSolutions",
+      "https://www.linkedin.com/company/techflow-solutions"
+    ],
+    "cmp:category": [
+      "technology",
+      "software",
+      "digital-services"
+    ],
+    "cmp:productFeed": {
+      "@type": "DataFeed",
+      "url": "https://techflowsolutions.com/.well-known/cmp/feed-index.json"
+    },
+    "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "cmp:orgId",
+        "value": "urn:cmp:orgid:987fcdeb-51a2-43d1-b789-987654321000"
+    }
+  }
