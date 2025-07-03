@@ -1,0 +1,51 @@
+version: 0.1
+resources:
+  product:
+    uri_template: "cmp://product/{skuUrn}"
+    description: Resolvable pointer to a Product JSON-LD object
+  search:
+    uri_template: "cmp://search/{hash}"
+    description: Cached search result set
+tools:
+  - name: search_products
+    description: Faceted & semantic search
+    input_schema:
+      type: object
+      required: [query]
+      properties:
+        query: { type: string }
+        filters: { type: object, additionalProperties: true }
+        limit: { type: integer, default: 20 }
+    output_schema:
+      type: object
+      properties:
+        products:
+          type: array
+          items: { type: string, format: uri, pattern: '^cmp://product/.+' }
+        nextPageToken: { type: string, nullable: true }
+  - name: get_product
+    description: Fetch full product
+    input_schema:
+      type: object
+      required: [skuUrn]
+      properties:
+        skuUrn: { type: string, pattern: '^urn:cmp:sku:.+$' }
+    output_schema:
+      $ref: ./schemas/product.schema.json
+  - name: compare_products
+    description: Return a diff/summary of two products
+    input_schema:
+      type: object
+      required: [skuA, skuB]
+      properties:
+        skuA: { type: string }
+        skuB: { type: string }
+    output_schema:
+      type: object
+      properties:
+        comparison: { type: string }
+prompts:
+  get_product: "Find organic dark roast coffee beans under $25"
+  compare_two: "Produce a bullet-point comparison..."
+  build_shopping_list: "Given a trip scenario..."
+
