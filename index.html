@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commerce Mesh Protocol</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     
     <!-- Primary Meta Tags -->
@@ -24,26 +24,125 @@
     <meta property="twitter:title" content="Commerce Mesh Protocol" />
     <meta property="twitter:description" content="Commerce Mesh Protocol (CMP) is the open standard for AI-native, decentralized, programmable commerce. Discover, transact, trust, and fulfill—built for the future." />
     <meta property="twitter:image" content="https://github.com/commercemesh/commercemesh/raw/main/og-image.png" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-black text-white min-h-screen flex flex-col">
-    <header class="flex items-center justify-between px-8 py-6 border-b border-gray-800">
-        <div class="flex items-center space-x-3">
-            <span class="text-2xl font-bold tracking-tight">@commercemesh</span>
-        </div>
-        <a href="https://github.com/commercemesh/commercemesh" target="_blank" aria-label="GitHub Repo" class="hover:text-gray-400 flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.334-5.466-5.933 0-1.31.468-2.382 1.236-3.222-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.235 1.912 1.235 3.222 0 4.61-2.804 5.625-5.475 5.922.43.37.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            <span class="ml-1">GitHub</span>
-        </a>
-    </header>
-    <main class="flex flex-col items-left justify-center flex-1 text-left p-8 mt-10">
-        <h1 class="text-4xl max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-5xl xl:text-8xl pb-4 text-white">
-            Commerce Mesh Protocol
-        </h1>
+<body class="bg-black text-white min-h-screen">
+    <!-- Header -->
+    <!-- Header -->
+    <header class="bg-gray-900 fixed top-0 left-0 right-0 z-50" x-data="{ mobileMenuOpen: false }">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div class="flex lg:flex-1">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">CommerceMesh</span>
+              <img class="h-8 w-auto" src="commercemesh.png" alt="" />
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button 
+              type="button" 
+              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
+              @click="mobileMenuOpen = true"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-x-6">
+            <a href="https://discord.com/invite/Ch9QGzZN" target="_blank" class="text-sm/6 font-semibold text-white">
+                <svg aria-hidden="true" class="astro-jyluqafo astro-wice2egy" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.78 13.78 0 0 0-.64 1.28 18.27 18.27 0 0 0-5.5 0 12.64 12.64 0 0 0-.64-1.28h-.05A19.74 19.74 0 0 0 3.64 4.4 20.26 20.26 0 0 0 .11 18.09l.02.02a19.9 19.9 0 0 0 6.04 3.03l.04-.02a14.24 14.24 0 0 0 1.23-2.03.08.08 0 0 0-.05-.07 13.1 13.1 0 0 1-1.9-.92.08.08 0 0 1 .02-.1 10.2 10.2 0 0 0 .41-.31h.04a14.2 14.2 0 0 0 12.1 0l.04.01a9.63 9.63 0 0 0 .4.32.08.08 0 0 1-.03.1 12.29 12.29 0 0 1-1.9.91.08.08 0 0 0-.02.1 15.97 15.97 0 0 0 1.27 2.01h.04a19.84 19.84 0 0 0 6.03-3.05v-.03a20.12 20.12 0 0 0-3.57-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.34-.96 2.42-2.16 2.42Zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42 0-1.33.95-2.42 2.15-2.42 1.22 0 2.18 1.1 2.16 2.42 0 1.34-.94 2.42-2.16 2.42Z"></path></svg>
+            </a>
 
-        <section class="mt-10">
-            <div>
+         <a href="https://github.com/commercemesh/commercemesh/wiki" target="_blank" class="text-sm/6 font-semibold text-white">
+            <svg aria-hidden="true" class="astro-jyluqafo astro-wice2egy" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"></path></svg>
+            </a>
+            
+
+          </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div 
+          class="lg:hidden" 
+          role="dialog" 
+          aria-modal="true"
+          x-show="mobileMenuOpen"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
+          style="display: none;"
+        >
+          <!-- Background backdrop, show/hide based on slide-over state. -->
+          <div class="fixed inset-0 z-50" @click="mobileMenuOpen = false"></div>
+          <div 
+            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="transform translate-x-full"
+            x-transition:enter-end="transform translate-x-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="transform translate-x-0"
+            x-transition:leave-end="transform translate-x-full"
+          >
+            <div class="flex items-center justify-between">
+              <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">CommerceMesh</span>
+                <img class="h-8 w-auto" src="commercemesh.png" alt="CommerceMesh" />
+              </a>
+              <button 
+                type="button" 
+                class="-m-2.5 rounded-md p-2.5 text-gray-400"
+                @click="mobileMenuOpen = false"
+              >
+                <span class="sr-only">Close menu</span>
+                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/25">
+             
+                <div class="py-6">
+                    <a href="https://discord.com/invite/Ch9QGzZN" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-800">Join the community</a>
+                
+                    <a href="https://github.com/commercemesh/commercemesh/wiki" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-800">Learn more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <main class="flex flex-col flex-1 text-left p-8 pt-24 max-w-7xl mx-auto w-full">
+                 <section class="mt-10 w-full">
+         <div class="w-full">
+             <div class="mt-8 sm:mt-12 lg:mt-8">
+                <a href="#" class="inline-flex items-center space-x-4">
+                <span class="rounded-full border border-indigo-400 px-3 py-0.5 text-base font-semibold text-indigo-400">
+                    What's new
+                </span>
+                <span class="text-base font-medium text-gray-300">
+                    Just shipped v1.0
+                </span>
+                <svg class="w-6 h-6 text-gray-400" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" fill="currentColor"/>
+                </svg>
+                </a>
+              </div>
+            <h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl">Commerce Mesh Protocol</h1>
+            <p class="mt-8 text-pretty text-lg font-medium text-gray-400 sm:text-xl/8">The Open Coordination Layer for AI‑Native Commerce</p>
+        
+            <div class="mt-10 flex items-center gap-x-6">
+                <a href="https://github.com/commercemesh/commercemesh/wiki" class="rounded-md bg-indigo-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Learn more</a>
+                <a href="https://discord.com/invite/Ch9QGzZN" class="text-sm/6 font-semibold text-white hover:text-indigo-400">Join the community <span aria-hidden="true">→</span></a>
+              </div>
+            
+        </div>
+       
+            <div class="mt-20">
             <h2 class="text-4xl font-semibold text-white">
                 The Future of AI-Native Commerce
                
@@ -108,81 +207,14 @@
             
         </div>
 
-        <div class="mt-10">
-            <h2 class="text-4xl font-semibold text-white">
-                Join the community  
-               
-            </h2>
-            <p class="text-lg leading-10 text-white">
-                Schedule a call to join our community or learn more
-            </p>
-            <div class="mt-4">
-
-         
-            <a href="https://calendar.notion.so/meet/shivagarwal/r3ne14o4x" target="_blank" rel="noopener" class="inline-block bg-white text-black font-semibold px-8 py-4 rounded-lg shadow hover:bg-gray-200 transition-colors text-lg max-w-xs w-full text-left flex items-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mr-2"><rect x="3" y="4" width="18" height="18" rx="2" fill="#fff" stroke="#000" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
-                Schedule a call 
-            </a>
-        </div>
+       
           
-        <div class="mt-10">
-            <h2 class="text-4xl font-semibold text-white">
-                Stay in the loop
-               
-            </h2>
-            <p class="text-lg leading-10 text-white">
-                Subscribe to our newsletter to stay in the loop
-            </p>
-            <div class="mt-4">
-
-         
-                <!-- Add a placeholder for the thank you message -->
-                <div id="subscribe-message" class="text-green-400 font-semibold mt-4 hidden">Thank you for subscribing!</div>
-
-                <form id="subscribe-form" action="https://hooks.zapier.com/hooks/catch/15015034/2njhbm6/" method="POST" class="flex flex-col gap-4 w-full max-w-sm">
-                    <input type="email" name="email" required placeholder="Enter your email to stay in the loop" class="px-4 py-3 rounded-lg text-black w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <button type="submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-white bg-black text-white font-semibold text-lg transition-all duration-200 hover:bg-white hover:text-black hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 group overflow-hidden">
-                        <span class="animate-fadeUp">Keep me posted</span>
-                        <span class="ml-2 animate-fadeUp">
-                            <svg height="20" width="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block align-middle">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z" fill="currentColor"/>
-                            </svg>
-                        </span>
-                    </button>
-                </form>
-        </div>
-
-       </section>
-        
-      
+    
     </main>
     <footer class="text-center text-gray-500 py-6 border-t border-gray-800 mt-8">
         &copy; 2025 Commerce Mesh
     </footer>
 
-    <script>
-    document.getElementById('subscribe-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const data = new FormData(form);
-        const messageDiv = document.getElementById('subscribe-message');
-        try {
-            await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                mode: 'no-cors'
-            });
-            form.reset();
-            messageDiv.classList.remove('hidden');
-            // Optionally, hide the form after submission:
-            // form.style.display = 'none';
-        } catch (err) {
-            messageDiv.textContent = 'There was an error. Please try again.';
-            messageDiv.classList.remove('hidden');
-            messageDiv.classList.remove('text-green-400');
-            messageDiv.classList.add('text-red-400');
-        }
-    });
-    </script>
+
 </body>
 </html>
