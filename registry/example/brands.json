@@ -1,0 +1,40 @@
+{
+    "@context": {
+      "schema": "https://schema.org",
+      "cmp": "https://schema.commercemesh.ai/ns#"
+    },
+    "@type": "Organization",
+    "name": "EcoStyle Living",
+    "description": "EcoStyle Living is a sustainable home goods and lifestyle brand.",
+    "url": "https://ecostyleliving.com",
+    "logo": "https://example.com/logos/ecostyle-logo.png",
+    "brand": {
+        "@type": "Brand",
+        "name": "EcoStyle",
+        "logo": "https://example.com/logos/ecostyle-brand-logo.png",
+        "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "cmp:brandId",
+            "value": "urn:cmp:brand:22eefabc-7b1d-6d29-9e12-22g812190dd3"
+        }
+    },
+    "sameAs": [
+      "https://www.instagram.com/ecostyleliving",
+      "https://www.facebook.com/EcoStyleLiving",
+      "https://www.pinterest.com/ecostyleliving"
+    ],
+    "cmp:category": [
+      "home-goods",
+      "sustainable-living",
+      "eco-friendly"
+    ],
+    "cmp:productFeed": {
+      "@type": "DataFeed",
+      "url": "https://openfeed.s3.us-east-2.amazonaws.com/j01pdw-th.myshopify.com/feed.json"
+    },
+    "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "cmp:orgId",
+        "value": "urn:cmp:orgid:22eefabc-7b1d-6d29-9e12-22g812190dd3"
+    }
+  }
