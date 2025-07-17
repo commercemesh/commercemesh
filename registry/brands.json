@@ -15,7 +15,7 @@
         "identifier": {
             "@type": "PropertyValue",
             "propertyID": "cmp:brandId  ",
-            "value": "urn:cmp:brand:11cdde9b-6a0c-5c18-8d01-11f701089cc2"
+            "value": "urn:cmp:org:11cdde9b-6a0c-5c18-8d01-11f701089cc2:brand:58e4844a-983e-51c8-9127-840d002d2f0d"
         }
     },
     "sameAs": [
