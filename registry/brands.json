@@ -29,7 +29,7 @@
     ],
     "cmp:productFeed": {
       "@type": "DataFeed",
-      "url": "https://insighteditions.com/.well-known/cmp/feed-index.json"
+      "url": "https://openfeed.s3.us-east-2.amazonaws.com/Insight-editions.myshopify.com/feed.json"
     },
     "identifier": {
         "@type": "PropertyValue",
