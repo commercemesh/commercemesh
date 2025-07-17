@@ -34,6 +34,6 @@
     "identifier": {
         "@type": "PropertyValue",
         "propertyID": "cmp:orgId",
-        "value": "urn:cmp:orgid:11cdde9b-6a0c-5c18-8d01-11f701089cc2"
+        "value": "urn:cmp:org:11cdde9b-6a0c-5c18-8d01-11f701089cc2"
     }
   }
